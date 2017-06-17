@@ -17,7 +17,20 @@ require_relative 'entry'
             index+= 1
         end
 
-    entries.insert(index, Entry.new(name, phone_number, email))
+        entries.insert(index, Entry.new(name, phone_number, email))
     end
     
+    
+    #this is where I'm working
+    def remove_entry(name, phone_number, email)
+        entry_target = ''
+        
+        entries.each do |entry|
+            if name == entry.name && phone_number == entry.phone_number && email == entry.email
+                entry_target = entry
+            end
+        end
+        entries.delete(entry_target)
+        
+    end
 end
