@@ -8,6 +8,16 @@ RSpec.describe AddressBook do
         expect(entry.phone_number).to eql expected_number
         expect(entry.email).to eql expected_email
     end
+    
+    context "#destroy" do
+        it "should delete all entries" do
+            book.add_entry("JDawg","111.111.1111","j@email.com")
+            book.add_entry("a","222.222.2222","a@email.com")
+            book.add_entry("b","333.333.3333","b@email.com")
+            
+            book.exterminate
+            expect(book.entries.size.to eq 0)
+    end
 
     context "attributes" do
         it "should respond to entries" do

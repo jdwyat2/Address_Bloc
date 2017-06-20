@@ -8,6 +8,10 @@ class AddressBook
     def initialize
         @entries = []
     end
+    
+    def exterminate
+        @entries=[]
+    end
  
     def add_entry(name, phone_number, email)
         index = 0
@@ -52,6 +56,8 @@ class AddressBook
         return nil
     
     end
+    
+
 end
 
 

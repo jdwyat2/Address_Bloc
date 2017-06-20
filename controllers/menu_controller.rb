@@ -13,7 +13,8 @@ class MenuController
         puts "2 - Create an entry"
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
-        puts "n - View Entry number n"
+        puts "6 - View Entry number n"
+        puts "7 - deletes all entries"
         puts "5 - Exit"
         
         print "Enter your selection: "
@@ -37,13 +38,17 @@ class MenuController
                 system "clear"
                 read_csv
                 main_menu
-            when n
+            when 6
                 system "clear"
                 entry_n_submenu
                 main_menu
             when 5
                 puts "Good-Bye!"
                 exit(0)
+            when 7
+                system "clear"
+                destroy_entries
+                main_menu
             else
                 system "clear"
                 puts "Sorry, that is not a valid input"
@@ -113,6 +118,12 @@ class MenuController
             puts "#{file_name} is not a valid CSV file, please enter the name of a valid CSV file"
             read_csv
         end
+    end
+    
+    def destroy_entries
+        @AddressBook.exterminate
+        puts "All the entries are gone."
+        main_menu
     end
     
     def entry_submenu(entry)
